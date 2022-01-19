@@ -25,7 +25,7 @@ chmod +x <script root directory>/set-hosts.sh
     ```
 
 ### 4. Run Ubuntu-18.04 as adminstrator on Windows
-Right-click Unbunt-18.04 -> Run as adminstrator
+Right-click Ubuntu-18.04 -> Run as adminstrator
 
 ### 5. Run the scripts
 ``` bash

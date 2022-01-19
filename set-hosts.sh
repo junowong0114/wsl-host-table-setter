@@ -6,11 +6,11 @@ usage() {
   echo "Usage:"
   printf "hosts.sh [-f CONFIG_FILE] \n\n"
   echo "Description:"
-  echo "-f, CONFIG_FILE       The path of config.yml [default \"~/.hosts/config.yml\"]"
+  echo "-f, CONFIG_FILE       The path of config.yml [default \"~/.hosts/hosts.yml\"]"
   exit -1
 }
 
-CONFIG_FILE=~/.hosts/config.yml
+CONFIG_FILE=~/.hosts/hosts.yml
 
 while getopts 'f:h' OPT; do
   case $OPT in

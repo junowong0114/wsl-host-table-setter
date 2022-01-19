@@ -40,7 +40,7 @@ Select an ip to be set to abc.com:
 2) 127.0.0.1 (localhost)
 #? 2
 
-Successfully set abc.com to 10.32.44.21.
+Successfully set abc.com to 127.0.0.1.
 ```
 
 ### 6. Verify

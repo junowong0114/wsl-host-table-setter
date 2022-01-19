@@ -9,7 +9,7 @@ https://docs.microsoft.com/en-us/windows/wsl/install
 
 ### 2. Download the `set-hosts.sh` and run `chmod`
 ``` bash
-chmod +x {script root directory}/set-hosts.sh
+chmod +x <script root directory>/set-hosts.sh
 ```
 
 ### 3. Add a `hosts.yml` file to `~/.hosts/`
@@ -46,4 +46,11 @@ Successfully set abc.com to 127.0.0.1.
 ### 6. Verify
 ``` bash
 cat /mnt/c/Windows/System32/drivers/etc/hosts
+```
+
+### 7. Set alias
+``` bash
+$ vim ~/.bashrc
+
+alias hosts="<script root directory>/set-hosts.sh"
 ```

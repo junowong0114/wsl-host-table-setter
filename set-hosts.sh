@@ -12,13 +12,21 @@ usage() {
 
 CONFIG_FILE=~/.hosts/hosts.yml
 
-while getopts 'f:h' OPT; do
+while getopts ':f:h' OPT; do
   case $OPT in
     f) CONFIG_FILE=$OPTARG;;
     h) usage;;
-    ?) ;;
-  esac
+    \:) printf "Error: Argument missing from -%s option\n\n" $OPTARG
+        usage
+        exit 2
+        ;;
+    \?) printf "Error: Unknown option: -%s\n\n" $OPTARG
+        usage
+        exit 2
+        ;;
+  esac >&2
 done
+shift $(($OPTIND - 1))
 
 declare -a HOSTNAMES
 HOSTNAMES=($(cat $CONFIG_FILE | grep -e '^[^ ].*' | perl -pe "s|(.*):|\1|"))

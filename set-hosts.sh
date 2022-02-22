@@ -22,7 +22,18 @@ list() {
     set +e
     for TARGET_HOSTNAME in ${HOSTNAMES[@]}; do
         ip=$(cat $HOST_TABLE_FILE | grep $TARGET_HOSTNAME | perl -pe 's|((?:[0-9]+\.){3}[0-9]+).*|\1|')
-        echo "$TARGET_HOSTNAME: $ip"
+        
+        if [[ $ip ]]; then 
+            name=$(cat $CONFIG_FILE | grep $ip | perl -pe "s|\s*- [\"']*(.*):((?:[0-9]+\.){3}[0-9]+)[\"']*|\1|")
+            
+            if [[ $name ]]; then
+                echo "$TARGET_HOSTNAME: $ip ($name)"
+            else
+                echo "$TARGET_HOSTNAME: $ip (ip not found in hosts.yml)"
+            fi;
+        else
+            echo "$TARGET_HOSTNAME: (unset)"
+        fi;
     done
     exit 0 
 }

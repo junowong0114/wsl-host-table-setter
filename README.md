@@ -54,3 +54,11 @@ $ vim ~/.bashrc
 
 alias hosts="<script root directory>/set-hosts.sh"
 ```
+
+### 8. Use -l to list the current config
+``` bash
+$ set-hosts.yml -l
+
+abc.com: 127.0.0.1
+def.com: 
+```
